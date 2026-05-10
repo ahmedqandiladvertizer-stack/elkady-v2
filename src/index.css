@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-bg: #050505;
+  --color-accent-orange: #ff8c00;
+  --color-accent-blue: #0E26D8;
+  --color-glass: rgba(255, 255, 255, 0.06);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-white font-sans;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  .mesh-bg {
+    @apply fixed inset-0 z-[-1] overflow-hidden;
+  }
+
+  .blob-orange {
+    @apply absolute w-[600px] h-[600px] top-[-100px] right-[-100px] blur-[60px];
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 70%);
+  }
+
+  .blob-blue {
+    @apply absolute w-[600px] h-[600px] bottom-[-100px] left-[-100px] blur-[60px];
+    background: radial-gradient(circle, rgba(14, 38, 216, 0.15) 0%, transparent 70%);
+  }
+
+  .nav-glass {
+    @apply bg-black/80 backdrop-blur-[10px] border-b border-glass-border;
+  }
+
+  .glass-card {
+    @apply bg-glass backdrop-blur-[12px] border border-glass-border rounded-[24px];
+  }
+
+  .btn-glow {
+    @apply bg-gradient-to-r from-accent-orange to-[#ffb24d] shadow-[0_0_20px_rgba(255,140,0,0.3)] transition-all duration-300;
+  }
+}
